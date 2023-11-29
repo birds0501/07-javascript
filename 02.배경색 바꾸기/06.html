@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>배경색 바꾸기 - 사용자의 선택</title>
+    <style>
+      ul,
+      ol,
+      li {
+        list-style: none;
+      }
+
+      body {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .wrap ul {
+        display: flex;
+        gap: 3vw;
+      }
+
+      .wrap li {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        border: 3px solid #777;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 2rem;
+        color: #333;
+      }
+
+      .wrap li:nth-child(1) {
+        background: #ffccff;
+      }
+      .wrap li:nth-child(2) {
+        background: #cc99ff;
+      }
+      .wrap li:nth-child(3) {
+        background: #9966ff;
+      }
+      .wrap li:nth-child(4) {
+        background: #6633ff;
+      }
+      .wrap li:nth-child(5) {
+        background: #6633cc;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <ul>
+        <li data-color="#ffccff">#ffccff</li>
+        <!-- data-color사용자 속성 -->
+        <li data-color="#cc99ff">#cc99ff</li>
+        <li data-color="#9966ff">#9966ff</li>
+        <li data-color="#6633ff">#6633ff</li>
+        <li data-color="#6633cc">#6633cc</li>
+      </ul>
+    </div>
+
+    <script>
+      //대상을 변수에 저장
+      const $body = document.body;
+      const $selectItem = document.querySelectorAll('.wrap ul li'); /* 모든 li다 잡히게 */
+      console.log($selectItem);
+
+      // $selectItem[1].style.backgroundColor = 'red';(테스트)
+
+      //어느 li가 선택될지 모르니 반복해서 세팅
+      // for (let i = 0; i < $selectItem.length; i++) {
+      // $selectItem[i].addEventListener('click', function () {
+      // console.log($selectItem[i]);
+
+      //선택한 li의 data-color 속성의 값을 가져오기
+      //가져오기 : getAttribute('속성명')
+      //적용하기 : setAttribute('속성명', 값)
+      //   const color = $selectItem[i].getAttribute('data-color');
+      //   $body.style.backgroundColor = color;
+      // });
+      // }
+
+      //.forEach(function (item, index) {})
+      $selectItem.forEach(function (item, index) {
+        item.addEventListener('click', function () {
+          console.log(item, index);
+          const color = item.getAttribute('data-color');
+          $body.style.backgroundColor = color;
+        });
+      });
+    </script>
+  </body>
+</html>

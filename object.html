@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>객체(object)</title>
+    <!-- 데이터를 설명과 함께 저장하고 싶을 때 많이 슴 -->
+  </head>
+  <body>
+    <script>
+      //객체란 데이터와 데이터에 대한 동작을 함꼐 묶어서 표현하는 방법
+      //객체 = 데이터와 구문(실행코드)의 집합(객체에는 동작, 변수도 다 들어갈 수 있다.)
+
+      //1. 객체 리터럴
+      const obj = { name: 'John', age: 29 }; //오브젝트를 obj로 줄여 쓴 것/ name: '존'부분은 프로퍼티이다.(키와 값의 조합(속성).-키는 변수 존은 데이터)
+      console.log(obj['name']); //대괄호로 쓰려면 따옴표 안에 키 넣어야
+      console.log(obj.age); //프로퍼티로 쓰려면 .키 해주면 됨.
+
+      const arr = ['John', 29]; //배열(객체와 비교용으로 쓴 것)
+      console.log(arr[0]); //접근- John 출력
+
+      //2. 생성자 함수
+      const tv = new Object(); //오브젝트(생성자)는 자바스크립트에 내장되어있는거임
+      tv.brand = 'samsung';
+      tv.name = 'paav';
+      tv.price = 8000000;
+      tv.info = function () {
+        console.log('정말 멋진 TV입니다.');
+      }; //키의 값으로 함수가 담기면 매서드라고 한다.
+      console.log(tv['brand'], tv.name);
+      tv.info();
+
+      // 객체 만들기
+      const person = {
+        name: '권지민',
+        age: 23,
+        gender: 'female',
+        hobby: ['그림 그리기', '노래 부르기', '술 마시기'],
+        greeting: function () {
+          console.log(`안녕하세요, 저는 ${person.age}살 ${person.name}입니다.`);
+          console.log(`저의 취미는 ${this.hobby[0]}입니다.`);
+        },
+      };
+
+      person.greeting();
+
+      //객체의 속성을 추가
+      person.isMarried = false; //객체에 접근해서 새로운 키, 값을 할당하면 됨.
+
+      //객체의 속성을 변경
+      person.age = 51;
+      console.log(person);
+
+      //객체의 속성을 삭제
+      delete person.age;
+
+      //객체의 속성을 순회(돌면서 각각 값들을 받아내기/ const 변수 자리는 내가 아무거나 써도 됨/순회는 ui 스크립트에서는 잘 안씀)
+      for (const prop in person) {
+        console.log(prop);
+        console.log(person[prop]);
+      }
+    </script>
+  </body>
+</html>

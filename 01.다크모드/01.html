@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>다크모드 구현 : 버튼으로 구현</title>
+    <style>
+      body {
+        background: #fff;
+      }
+      body.dark {
+        background: #333;
+      }
+    </style>
+  </head>
+  <body>
+    <button type="button" id="addDark">다크모드 구현</button
+    ><!-- 자바 스크랩트 적용시 이름 줄 때 id 많이 줌 (변수에 저장시 id로 불러옹ㅁ)-->
+    <button type="button" id="removeDark">다크모드 해제</button>
+    <button type="button" class="darkMode">다크모드</button>
+
+    <script>
+      // 대상(객체?)을 변수에 저장 : 코드를 짧고 간결하게 쓸 수 있고, 재사용 가능
+      const $body = document.body; //대상을 변수에 저장
+      const btnAddDark = document.getElementById("addDark"); //대상을 변수에 저장
+      //const btnRemoveDark = document.getElementById("removeDark");
+      const btnRemoveDark = document.querySelector("#removeDark");
+      //const btnDark = document.getElementsByClassName("darkMode"); class name으로 불러올때는 우일한 이름이 아니므로 element복수형으로 써줘야함
+      const btnDark =
+        document.querySelector(
+          ".darkMode"
+        ); /* css선택자 방식이므로 . 찍어줘야 함(id같은 경우에는 #) 앞으로 이 방법 쓸거임*/
+
+      // console.log(btnAddDark); 변수에 대상이 잘 담겼는지 확인-웹 검사기-콘솔/변슈를 그대로 쓸때는 따옴표 안쓴다.
+      // console.log(btnRemoveDark); ()는 매개변수
+      console.log(btnAddDark, btnDark);
+
+      //1. btnAddDark버튼을 클릭하면
+      //대상(대상을 저장한 변수).addEventListner('이벤트 명' , 동작(){});
+      btnAddDark.addEventListener("click", function () {
+        //body에 dark클래스 부여
+        $body.classList.add("dark");
+      });
+
+      //2. btnRemoveDark버튼을 클릭하면 body에 dark클래스 삭제
+      btnRemoveDark.addEventListener("click", function () {
+        $body.classList.remove("dark");
+      });
+
+      //3. btnDark버튼을 클릭하면 dark클래스를 줬다 뺐다.
+      btnDark.addEventListener("click", function () {
+        $body.classList.toggle("dark");
+      }); //엘리먼츠 클래스로 불러올때는 [순서]써줘야 함(0이 첫번째)
+
+      //조건문 if/else 테스트
+      //1. if (조건식) {실행코드}
+      //2. if (조건식) {참일때 실행코드1} else{거짓일때 실행코드2}
+      // let num = window.prompt("좋아하는 숫자는?");
+
+      if (num % 2 === 0) {
+        console.log("짝수 좋아하는구나");
+      } else {
+        console.log("홀수 좋아하는구나");
+      }
+    </script>
+  </body>
+</html>

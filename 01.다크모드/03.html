@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>다크모드 : 체크박스 이용</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background: #fff;
+        color: #222;
+        transition: 0.4s;
+        padding: 5vw;
+      }
+
+      body.dark {
+        background: #222;
+        color: #fff;
+        transition: 0.4s;
+      }
+
+      .check {
+        width: 70px;
+        height: 30px;
+      }
+
+      .check input {
+        display: none;
+      }
+
+      .check input + label {
+        display: block;
+        width: 100%;
+        height: 100%;
+        border-radius: 30px;
+        border: 1px solid #000;
+        position: relative;
+        text-indent: -999px;
+        overflow: hidden; /* 텍스트 날리기 */
+        background: #f5f5f5;
+        cursor: pointer;
+      }
+
+      .check input + label::after {
+        content: '';
+        display: block;
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        border: 1px solid #000;
+        position: absolute;
+        top: -1px;
+        left: -1px;
+        background: #fff;
+        transition: 0.4s;
+      }
+
+      .check input:checked + label {
+        background: #fff;
+      }
+
+      .check input:checked + label::after {
+        left: 40px;
+      }
+
+      ::selection {
+        background: #f5f;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="check">
+      <input type="checkbox" id="selectMode" />
+      <label for="selectMode">다크모드</label>
+    </div>
+
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut odit excepturi reprehenderit itaque praesentium
+      consequuntur maiores similique minus, fugit fuga? Illo commodi explicabo ipsam iure beatae obcaecati rem et, illum
+      nobis ullam tempore porro repellendus labore quibusdam reprehenderit, nesciunt officiis numquam mollitia quasi
+      earum natus blanditiis magni sit. Rem odio quod inventore, cupiditate ipsum perspiciatis eius id. Nulla quam eos
+      consequatur eius qui ullam optio obcaecati minima, eaque rem ipsum nisi id laboriosam voluptatum voluptate! Ad
+      quasi dolorum dolorem veritatis nulla hic at ducimus enim itaque. Soluta, quasi? Inventore animi aliquid ex
+      voluptas, modi voluptate pariatur illo quasi? Quisquam aut facilis animi. Ducimus quidem sequi saepe consectetur
+      eaque sunt alias nisi dolor? Non facere, reiciendis consequatur quisquam maiores nihil fuga magnam temporibus ea
+      cumque officia tempora unde a nulla dignissimos, sint quidem, beatae perferendis? Laborum incidunt culpa
+      exercitationem nobis nesciunt esse sequi laboriosam aliquid et, suscipit facilis sit modi magnam ratione fugit
+      atque eum enim amet assumenda repellendus neque. Vel et sapiente repellendus, expedita animi quibusdam maxime
+      tenetur nesciunt recusandae quo officia praesentium veritatis, iste suscipit? Atque sit animi officia eligendi
+      repellat nulla veniam delectus. Ipsam sit aliquid, ipsum quasi molestiae velit possimus illo earum amet assumenda
+      architecto sed, quaerat unde voluptas ut asperiores similique quam facere cupiditate a dolores! Quaerat nam rerum
+      dolorem veritatis itaque perferendis saepe vitae, dicta animi. Neque magni unde sequi culpa, asperiores
+      voluptatibus alias, vitae officia molestiae est dolorum cum ullam maiores, sed quibusdam optio at laborum
+      perferendis ipsam rem. Perspiciatis voluptatibus ad distinctio odit officia repellat suscipit eum quidem magni
+      ratione, nisi sunt beatae obcaecati quae et, quo deserunt. Veritatis corrupti aliquam adipisci officiis recusandae
+      rem praesentium alias eaque quis, nisi quia blanditiis nostrum illo eveniet impedit veniam, est reiciendis hic.
+      Nostrum vero sit officia distinctio blanditiis nisi possimus sequi, cupiditate culpa suscipit hic doloremque vitae
+      aliquam consequuntur? Dolore alias quisquam recusandae, laborum nobis voluptate repellendus iste! Veritatis maxime
+      porro unde obcaecati culpa, fugit id, voluptatum reiciendis aliquam facere vitae, quae eos. Molestiae consectetur
+      rerum veritatis aspernatur, ad illo ab deleniti eligendi nobis ullam, voluptatem id ipsam repudiandae dolores
+      quidem tempore quo. Consequatur aut iure obcaecati et dolorum quis ea similique voluptate est necessitatibus nam
+      perspiciatis aspernatur itaque, delectus molestias magnam ipsa eaque saepe dolores tempore? Ipsa ex fugiat ratione
+      ducimus nesciunt cupiditate, dignissimos voluptatum placeat ut, provident deleniti reiciendis aspernatur, quas
+      aliquid est iusto autem expedita voluptas minus? Debitis repellendus expedita quisquam nemo! Est voluptate quidem
+      sint fugit mollitia eveniet pariatur cum temporibus, quam ad illum fugiat suscipit corporis similique obcaecati
+      repellat iste officiis, odio unde. Accusantium, consectetur nesciunt repellat ducimus eos sit, nulla, distinctio
+      eveniet mollitia ad ex quod non error repudiandae voluptatibus est architecto animi quae ut nemo eaque! Incidunt,
+      veritatis delectus? Distinctio temporibus in, necessitatibus harum pariatur repudiandae id excepturi ratione. Quis
+      repudiandae a asperiores ullam eum maiores commodi, dolores quod quas? Deleniti, similique exercitationem enim
+      quidem ullam sapiente saepe reprehenderit tenetur, voluptatibus eos amet, facere veniam voluptas iusto incidunt.
+      Officia vero natus error delectus provident velit eos voluptatum et consequuntur necessitatibus officiis illum
+      facere eius minus accusamus laborum numquam esse, debitis optio. Quibusdam suscipit error sint ratione illo
+      reprehenderit quia, nulla laboriosam porro ipsam, deserunt quaerat. Dicta, placeat ipsam sint voluptatem fugiat
+      quod eius, qui libero rem veniam obcaecati praesentium architecto ratione vero fugit. Officia placeat, sequi vero
+      numquam accusamus repudiandae at officiis deserunt? Veritatis, illo? In, autem ratione. Sint quo modi qui
+      accusantium omnis blanditiis earum cum aperiam minima in eum quibusdam sequi asperiores aliquid libero, delectus
+      illum! Dolorem provident ex, soluta odio eligendi reprehenderit obcaecati expedita aspernatur maiores laborum
+      fugiat doloribus. Nostrum quasi vero placeat doloribus sequi iusto! Labore, velit quaerat voluptates omnis aliquam
+      aperiam! Earum dolorum minus cupiditate voluptas est, velit incidunt reprehenderit quaerat fuga saepe, temporibus
+      veritatis expedita aliquid! Accusamus, consectetur itaque. Ex id minus deserunt laudantium repudiandae pariatur
+      adipisci, culpa quidem quaerat eos nam dignissimos nemo obcaecati perferendis dicta sed, rem doloribus aliquid?
+      Iusto exercitationem expedita illo? Dolorum, totam ullam nihil ex iure cumque consequuntur vel voluptas dolore
+      aliquid facilis id ratione beatae mollitia excepturi animi voluptates culpa harum accusantium sint! Quae quo
+      incidunt quod explicabo dolorem molestias numquam nisi hic ratione consectetur ab, porro tempora. Dignissimos
+      quaerat facere saepe laboriosam ratione veniam, corporis explicabo, incidunt debitis quasi dolores cupiditate amet
+      cum tempore rem ipsam ipsa ipsum voluptas pariatur repellendus corrupti, iste numquam quam. Quidem nulla officiis
+      praesentium distinctio optio fuga ipsa magni ab harum numquam velit autem eligendi assumenda non iure, molestias,
+      quia consectetur sit aliquid nam asperiores accusamus. Quidem fugit velit corrupti aliquam. Error suscipit
+      corrupti neque porro, nesciunt explicabo consequatur. Itaque dolorem, quaerat quae minus excepturi fugiat ad modi
+      tenetur necessitatibus alias fuga non mollitia provident esse error doloremque placeat iusto quibusdam
+      voluptatibus repellat, debitis odit? Impedit quibusdam tempore unde corrupti nesciunt possimus recusandae iste
+      tenetur reprehenderit aspernatur perspiciatis dolorum, reiciendis alias similique. Nobis expedita porro eveniet
+      sed, itaque necessitatibus nesciunt id ipsam repellendus ad accusantium laborum reiciendis minus delectus ea,
+      quasi inventore. Ratione reiciendis nisi animi culpa provident. Veritatis vel quia praesentium cum deserunt sed
+      incidunt excepturi voluptatem vitae numquam voluptates nihil eligendi, libero exercitationem eum architecto
+      quisquam? Magnam id eius dolore dolorum numquam aliquid quam recusandae harum enim, hic delectus repellat autem
+      sapiente quia fuga, suscipit animi tempore, amet similique earum at? Corrupti alias a ipsum officiis sequi
+      voluptatum suscipit magni velit, facilis facere aspernatur dicta rerum maiores fugit, cum expedita placeat ea,
+      exercitationem eligendi odit incidunt sapiente repudiandae! Fuga quas enim eaque corrupti quia labore dignissimos
+      quo aspernatur. Dolorum vero culpa quod blanditiis, voluptatum ex velit! Autem explicabo officiis laborum aut quos
+      pariatur itaque reprehenderit, rem dolores deserunt accusantium optio officia, suscipit eaque vitae id excepturi?
+      Inventore hic quam facilis iusto alias commodi perferendis odit voluptatibus ullam repellendus distinctio error
+      aliquam ab accusantium labore numquam, minima, iure, saepe harum quos officiis incidunt eaque beatae esse. Fugiat
+      molestias impedit quia placeat qui ullam atque corporis suscipit velit possimus sapiente rem nesciunt sunt soluta
+      blanditiis voluptatum ut, assumenda aspernatur nulla amet quibusdam. Consectetur facilis veritatis eaque, quasi
+      quidem beatae omnis.
+    </p>
+    <script>
+      //대상을 변수에 저장
+      const $body = document.body;
+      const selectMode = document.querySelector('#selectMode');
+
+      //대상.addEventListner('이벤트명', 동작-함수-핸들러)
+      //함수가 이벤트 핸들러로 호출될 때, 첫번째 매개변수 자리에 이벤트 정보가 객체로 전달된다.
+
+      //체크박스에 클릭했을 때
+      selectMode.addEventListener('click', function (event) {
+        console.log(event);
+        console.log(event.target.checked);
+
+        if (event.target.checked) {
+          $body.classList.add('dark');
+        } else {
+          $body.classList.remove('dark');
+        }
+      }); /* 펑션 함수자리 보통 event씀 */
+    </script>
+  </body>
+</html>

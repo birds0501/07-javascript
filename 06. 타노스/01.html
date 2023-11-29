@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>경우의 수는?</title>
+  </head>
+  <body>
+    <script>
+      //우리가 타노스한테 죽을 확률은? 50% ---> 필요한 숫자는 0.1
+      const result = Math.floor(Math.random() * 2);
+      console.log(result);
+      //if/ else aㄴ
+      // if (result) {
+      //   console.log('너 살았어!');
+      // } else {
+      //   console.log('우주를 위하여 희생되어라 닝겐!!');
+      // }
+
+      //삼항 조건 연산자(조건이 하나인 경우 사용) ---> 조건? 참인경우 - 실행코드 : 거짓인 경우 - 실행코드
+      result ? console.log('너 살았어!') : console.log('우주를 위해 희생되어라 닝겐!');
+    </script>
+  </body>
+</html>

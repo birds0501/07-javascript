@@ -1,0 +1,119 @@
+@charset 'utf-8';
+
+body {
+  height: 100vh;
+  background: url(../img/background.jpg) no-repeat 0 0 / cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* 3차원 공간으로 세팅 */
+  perspective: 600px;
+}
+
+.card {
+  width: 400px;
+  height: 500px;
+  border: 10px solid #000;
+  animation: vibrate-1 0.3s linear infinite both;
+}
+
+.card.action {
+  animation: cardAni 1s;
+}
+
+@keyframes cardAni {
+  from {
+    transform: rotateY(720deg);
+  }
+}
+
+.card .result-box {
+  height: 100%;
+  padding: 30px;
+  font-size: 3rem;
+  color: transparent;
+  font-family: '궁서';
+  background: #000 url(../img/guntlet.jpg) no-repeat 50% / cover;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 1.5;
+  word-break: keep-all;
+  text-align: center;
+  transition: 0.4s;
+}
+
+.card .result-box.alive {
+  color: #fff;
+  background: yellowgreen;
+}
+
+.card .result-box.dead {
+  color: #fff;
+  background: #444;
+}
+
+.vibrate-1 {
+  -webkit-animation: vibrate-1 0.3s linear infinite both;
+  animation: vibrate-1 0.2s linear infinite both;
+}
+
+/**
+ * ----------------------------------------
+ * animation vibrate-1
+ * ----------------------------------------
+ */
+@-webkit-keyframes vibrate-1 {
+  0% {
+    -webkit-transform: translate(0);
+    transform: translate(0);
+  }
+  20% {
+    -webkit-transform: translate(-2px, 2px);
+    transform: translate(-2px, 2px);
+  }
+  40% {
+    -webkit-transform: translate(-2px, -2px);
+    transform: translate(-2px, -2px);
+  }
+  60% {
+    -webkit-transform: translate(2px, 2px);
+    transform: translate(2px, 2px);
+  }
+  80% {
+    -webkit-transform: translate(2px, -2px);
+    transform: translate(2px, -2px);
+  }
+  100% {
+    -webkit-transform: translate(0);
+    transform: translate(0);
+  }
+}
+@keyframes vibrate-1 {
+  0% {
+    -webkit-transform: translate(0);
+    transform: translate(0);
+  }
+  20% {
+    -webkit-transform: translate(-2px, 2px);
+    transform: translate(-2px, 2px);
+  }
+  40% {
+    -webkit-transform: translate(-2px, -2px);
+    transform: translate(-2px, -2px);
+  }
+  60% {
+    -webkit-transform: translate(2px, 2px);
+    transform: translate(2px, 2px);
+  }
+  80% {
+    -webkit-transform: translate(2px, -2px);
+    transform: translate(2px, -2px);
+  }
+  100% {
+    -webkit-transform: translate(0);
+    transform: translate(0);
+  }
+}

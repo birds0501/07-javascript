@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>if문</title>
+  </head>
+  <body>
+    <script>
+      //parseInt() : 문자형을 숫자형으로 변환(숫자형 쓸때는 해줘야 함-계산해야해서)
+      //const userName = prompt('이름이 뭐니?');
+      // console.log(typeof userName);
+
+      // if (userName) {
+      //   document.write(userName + '님 반갑습니다!');
+      // }
+
+      //문제 : 주문한 음식이 있을때 '주문이 접수되었습니다.' 콘솔에 출력하기 없으면 '주문이 없습니다' 출력하기
+      let hasOrder = "피자";
+
+      if (hasOrder) {
+        console.log("주문이 접수되었습니다.");
+      } else {
+        console.log("주문이 없습니다.");
+      }
+
+      //문제 : 고객 등급에 따라 할일율 차등 적용
+      //gold: 10%, silver: 5%
+      let userGrade = "gold";
+      let discountRate;
+
+      if (userGrade === "gold") {
+        discountRate = 0.1;
+      } else if (userGrade === "silver") {
+        discountRate = 0.05;
+      } else {
+        discountRate = 0;
+      }
+
+      // console.log('할인율은 ' + discountRate * 100 + '% 입니다.');
+      console.log(
+        `할인율은 ${discountRate * 100}% 입니다.`
+      ); /* `문자열 ${변수}`(물결표시) */
+
+      //문제 : 사용자한테 지금 몇 월인지 확인
+      const month = parseInt(prompt("지금 몇 월이니?"));
+
+      //입력받는 숫자가 1~12까지여야 한다.
+      if (month >= 1 && month <= 12) {
+        //계절에 맞는 인사를 콘솔에 뿌리기
+        //봄: 3~5, 여름: 6~8, 가을: 9~11, 겨울:12~2
+        if (month >= 3 && month <= 5) {
+          console.log("봄입니다!");
+        } else if (month >= 6 && month <= 8) {
+          console.log("여름입니다!");
+        } else if (month >= 9 && month <= 11) {
+          console.log("가을입니다!");
+        } else {
+          console.log("겨울입니다!");
+        }
+      } else {
+        alert("다시 한 번 확인해주세요!");
+        location.reload(); /* 페이지 새로고침 */
+      }
+    </script>
+  </body>
+</html>

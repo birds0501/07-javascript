@@ -1,0 +1,93 @@
+@charset 'utf-8';
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;900&family=Noto+Sans+KR:wght@400;900&display=swap');
+
+body {
+  font: 3vw/1.3 'Montserrat', 'Noto Sans KR', sans-serif;
+  color: #222;
+  overflow: hidden; /* 스크롤때문에 애니 덜컹거려서 숨김*/
+}
+
+.wrap {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.season {
+  font-weight: 900;
+  font-size: 5vw;
+}
+
+.spring {
+  background: yellowgreen;
+}
+.summer {
+  background: skyblue;
+}
+.fall {
+  background: darkgoldenrod;
+}
+.winter {
+  background: darkslateblue;
+}
+
+body::before {
+  content: '';
+  display: block;
+  width: 612px;
+  height: 640px;
+  background: url(../img/season.png) no-repeat 0 0;
+  position: absolute;
+  bottom: 5vw;
+  right: 5vw;
+  z-index: -1;
+  animation: seasonAni 1s both;
+}
+
+body.fall::before {
+  background-position: 0 0;
+}
+
+body.spring::before {
+  background-position: 0 -640px;
+}
+
+body.summer::before {
+  background-position: -612px -640px;
+}
+
+body.winter::before {
+  background-position: -612px 0;
+}
+
+@keyframes seasonAni {
+  0% {
+    opacity: 0;
+    transform: translateY(100%); /* 아래로 이동 */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+} /* 애니미스타 */
+
+body::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0.7;
+}
+
+body.day::after {
+  background: #fff;
+}
+body.night::after {
+  background: #000;
+}

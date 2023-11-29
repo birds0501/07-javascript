@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>다크모드 구현 : 버튼으로 구현</title>
+    <style>
+      body {
+        background: #fff;
+      }
+      body.dark {
+        background: #333;
+      }
+    </style>
+  </head>
+  <body>
+    <button type="button" id="addDark">다크모드 구현</button>
+    <button type="button" id="removeDark">다크모드 해제</button>
+    <button type="button" class="darkMode">다크모드</button>
+
+    <script>
+      const $body = document.body;
+      const btnAddDark = document.querySelector("#addDark");
+      const btnRemoveDark = document.querySelector("#removeDark");
+      const btnDark = document.querySelector(".darkMode");
+
+      btnAddDark.addEventListener("click", function () {
+        $body.classList.add("dark");
+      });
+
+      btnRemoveDark.addEventListener("click", function () {
+        $body.classList.remove("dark");
+      });
+
+      btnDark.addEventListener("click", function () {
+        $body.classList.toggle("dark");
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>가위바위보</title>
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <script src="./js/script.js"></script>
+  </head>
+  <body>
+    <div class="wrap">
+      <img src="./img/scissors.png" alt="가위" />
+      <img src="./img/rock.png" alt="바위" />
+      <img src="./img/paper.png" alt="보" />
+    </div>
+
+    <div class="result">
+      <div class="result-box result-user">
+        <img src="./img/scissors.png" alt="가위" />
+      </div>
+      <div class="result-box result-com">
+        <img src="./img/paper.png" alt="보" />
+      </div>
+      <div class="result-text"></div>
+    </div>
+    <audio id="rps-sound" src="./sound/rps.mp3"></audio>
+    <audio id="beep-sound" src="./sound/beep.wav"></audio>
+  </body>
+</html>

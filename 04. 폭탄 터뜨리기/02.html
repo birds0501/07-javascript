@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>숫자 카운트를 버튼으로 제어</title>
+    <style>
+      body {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .wrap {
+        width: 30%;
+        padding: 3vw;
+        border: 10px solid #000;
+        font-size: 10rem;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="info">10</div>
+      <div class="btns">
+        <button type="button" id="go">GO</button>
+        <button type="button" id="stop">STOP</button>
+      </div>
+    </div>
+    <script>
+      //대상을 변수에 저장
+      const $info = document.querySelector('.info');
+      const $go = document.querySelector('#go');
+      const $stop = document.querySelector('#stop');
+
+      //전역공간에서 타이머 선언
+      let timer; //let은 똑같은 이름으로 재선언 할 수 없다.
+
+      //버튼을 클릭했을때
+      $go.addEventListener('click', function () {
+        timer = setInterval(counter, 1000);
+      });
+      $stop.addEventListener('click', function () {
+        timer = clearInterval(timer);
+      });
+
+      //1초에 한 번 씩 숫자가 1씩 감소(타이머 함수 사용--> setInterval-매개변수 두가지 가져감  setInterval(동작, 시간); )
+      let count = 10;
+
+      //변수선언
+
+      //동작을 함수로 정의
+      function counter() {
+        //0이 되면 줄어들기 종료, 숫자를 감소
+        if (count === 0) {
+          console.log('애옹!!!!!');
+
+          //타이머 해제
+          clearInterval(timer);
+          count = 10;
+        } else {
+          count--;
+        }
+        $info.textContent = count;
+      }
+    </script>
+  </body>
+</html>

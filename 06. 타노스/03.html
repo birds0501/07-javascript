@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>localStorage에 저장 - 베열을 이용한 옵션확장</title>
+    <style>
+      body {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .result-box {
+        padding: 50px;
+        border: 10px solid #000;
+        font-weight: bold;
+        font-size: 2rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="result-box"></div>
+    </div>
+    <script>
+      //대상을 변수에 저장
+      const $resultBox = document.querySelector('.result-box');
+      const result = Math.floor(Math.random() * 2);
+
+      const resultArr = [
+        { text: '너 살았어!', value: 'alive' },
+        { text: '우주를 위해 희생되어라 닝겐!', value: 'dead' },
+      ];
+      console.log(resultArr[result].text);
+      console.log(resultArr[result].value);
+
+      //해야 할 작업
+      $resultBox.textContent = resultArr[result].text;
+      localStorage.setItem('resultValue', resultArr[result].value);
+
+      // if (result) {
+      //   resultText = '너 살았어!';
+      //   localStorage.setItem('resultValue', 'alive');
+      // } else {
+      //   resultText = '우주를 위해 희생되어라 닝겐!';
+      //   localStorage.setItem('resultValue', 'dead');
+      // }
+
+      // $resultBox.textContent = resultText;
+    </script>
+  </body>
+</html>

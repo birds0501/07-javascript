@@ -1,0 +1,116 @@
+@charset "utf-8";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  padding: 5vw;
+  line-height: 2;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:hover {
+  text-decoration: none;
+  color: #f39;
+}
+
+/* 체크박스 디자인 */
+.mode-wrap {
+  position: absolute;
+  top: 50px;
+  right: 50px;
+}
+
+#mode {
+  display: none;
+}
+#mode + label {
+  display: block;
+  /* background: #ff5; */
+  position: relative;
+  text-align: center;
+  cursor: pointer;
+}
+#mode + label::before {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 30px;
+  border: 1px solid #000;
+  border-radius: 30px;
+}
+
+#mode + label::after {
+  content: '';
+  display: block;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #000;
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  transition: 0.4s;
+}
+
+/* 체크 박스가 체크된 상태일 때 */
+#mode:checked + label::after {
+  left: calc(100% - 31px);
+}
+
+.mode-wrap::before,
+.mode-wrap::after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 6px;
+  width: 20px;
+  height: 20px;
+  background: #f00;
+  background: no-repeat 50% / cover;
+  z-index: 1;
+}
+
+.mode-wrap::before {
+  left: 6px;
+  background-image: url(../img/sun_icon.png);
+}
+
+.mode-wrap::after {
+  right: 6px;
+  background-image: url(../img/moon_icon.png);
+  display: none;
+}
+
+/* 다크 부분 적용 */
+body.dark {
+  background: #333;
+  color: #fff;
+}
+
+body.dark a:hover {
+  color: skyblue;
+}
+
+body.dark #mode + label::before {
+  border-color: #fff;
+}
+
+body.dark #mode + label::after {
+  background: #fff;
+}
+
+body.dark .mode-wrap::before {
+  display: none;
+}
+
+body.dark .mode-wrap::after {
+  display: block;
+}

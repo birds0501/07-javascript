@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>요일에 맞는 배경색 바꾸기</title>
+    <style>
+      figure {
+        width: 70%;
+        margin: 100px auto;
+      }
+
+      figure img {
+        vertical-align: top;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <figure>
+      <img src="./img/newjeans01.jpg" <img src="./img/newjeans01.jpg" <img src="./img/newjeans01.jpg" alt="뉴진스" />
+    </figure>
+    <script>
+      //대상을 변수에 저장
+      const $body = document.body;
+      const now = new Date();
+      const day = now.getDay();
+      const pic = document.querySelector('figure');
+      console.log(pic.innerHTML); //프로퍼티-innerHTML은 잡아온 것의 안에 있는 마크업을 잡아오는 것
+
+      const color = ['purple', 'fuchsia', 'violet', ' lavender', 'navy', 'blue', 'aliceblue'];
+
+      //배경색 칠하기
+      $body.style.backgroundColor = color[day];
+
+      //랜덤한 수1-6까지 생성
+      const num = Math.ceil(Math.random() * 6);
+      console.log(num);
+
+      //이미지 적용
+      // pic.innerHTML = '<img src="./img/newjeans0' + num + '.jpg">'; //값을 집어넣을 때 문자열로 집어넣어야 함
+      pic.innerHTML = `<img src="./img/newjeans0${num}.jpg">`;
+    </script>
+  </body>
+</html>

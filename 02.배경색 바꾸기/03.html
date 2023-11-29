@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>배경색 바꾸기 : 정해진 컬러중 랜덤하게</title>
+  </head>
+  <body>
+    <button type="button" id="btnChange">배경색 바꾸기</button>
+    <script>
+      //대상을 변수에 저장
+      const $body = document.body;
+      const btnChange = document.querySelector('#btnChange');
+      const color = ['lavender', '#f59', 'rgba(255,255,0,0.8)', 'skyblue', 'pink'];
+
+      //Math 내장객체 학습
+      //1. Math.ceil() : 숫자를 올림한 정수 변환
+      // console.log(Math.ceil(5.3)); //6의미
+      // console.log(Math.ceil(4.7)); //5의미
+      // console.log(Math.ceil(-4.7)); //-4
+
+      //2. Math.floor() : 숫자를 내림한 정수 변환
+      // console.log(Math.floor(5.3)); //5의미
+      // console.log(Math.floor(4.7)); //4의미
+      // console.log(Math.floor(-4.7)); //-5
+
+      //3. Math.round() : 숫자를 반올림한 정수 변환
+      // console.log(Math.round(5.3)); //5의미
+      // console.log(Math.round(4.7)); //5의미
+      // console.log(Math.round(-4.7)); //-4
+
+      //4. Math.random() : 0~1사이의 난수 발생(0~0.9999999999...)
+      // console.log(Math.random());
+      // console.log(Math.random() * 10);
+      // console.log(Math.floor(Math.random() * 10)); //0~9 사이의 수
+
+      //btnChange클릭하면 배경색 변경
+      // btnChange.addEventListener('click', function () {
+      //   changeColor();
+      // });
+      btnChange.addEventListener('click', changeColor);
+
+      //반복되는 동작을 함수로 정의
+      function changeColor() {
+        let randomIdx = Math.floor(Math.random() * color.length);
+        console.log(randomIdx);
+        $body.style.backgroundColor = color[randomIdx];
+      }
+
+      //내장함수 - 타이머 함수
+      //타이머 함수 중에서 반복 --> setInterval(동작, 시간 무조건 들어가야 함. ex)애드이벤트리스너(변수자리-매개변수))
+      setInterval(changeColor, 1000);
+    </script>
+  </body>
+</html>

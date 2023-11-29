@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>배경색 바꾸기 - 사용자의 선택</title>
+    <style>
+      ul,
+      ol,
+      li {
+        list-style: none;
+      }
+
+      body {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .wrap ul {
+        display: flex;
+        gap: 3vw;
+      }
+
+      .wrap li {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        border: 3px solid #777;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 2rem;
+        color: #333;
+      }
+
+      .wrap li:nth-child(1) {
+        background: #ffccff;
+      }
+      .wrap li:nth-child(2) {
+        background: #cc99ff;
+      }
+      .wrap li:nth-child(3) {
+        background: #9966ff;
+      }
+      .wrap li:nth-child(4) {
+        background: #6633ff;
+      }
+      .wrap li:nth-child(5) {
+        background: #6633cc;
+      }
+    </style>
+
+    <!-- jQuery.com에서 js파일 가져오기 -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+      integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script>
+      $(function () {
+        //대상을 변수에 저장
+        const $body = $('body');
+        const $selectItem = $('.wrap ul li'); /* 모든 li다 잡히게 */
+        console.log($selectItem);
+
+        $selectItem.on('click', function () {
+          const color = $(this).attr('data-color');
+          $body.css('background-color', color);
+        });
+      });
+
+      //document.addEventListener('DOMContentLoaded', ()=>{})
+
+      // //대상을 변수에 저장
+
+      // //.forEach(function (item, index) {})
+      // $selectItem.forEach(function (item, index) {
+      //   item.addEventListener('click', function () {
+      //     console.log(item, index);
+      //     const color = item.getAttribute('data-color');
+      //     $body.style.backgroundColor = color;
+      //   });
+      // });
+    </script>
+  </head>
+  <body>
+    <div class="wrap">
+      <ul>
+        <li data-color="#ffccff">#ffccff</li>
+        <!-- data-color사용자 속성 -->
+        <li data-color="#cc99ff">#cc99ff</li>
+        <li data-color="#9966ff">#9966ff</li>
+        <li data-color="#6633ff">#6633ff</li>
+        <li data-color="#6633cc">#6633cc</li>
+      </ul>
+    </div>
+
+    <script></script>
+  </body>
+</html>

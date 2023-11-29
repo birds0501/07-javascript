@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>가위바위보</title>
+    <style>
+      body {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .wrap {
+        display: flex;
+        gap: 50px;
+        background: #ff5;
+      }
+
+      .wrap img {
+        border: 1px solid #000;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <img src="./img/scissors.png" alt="가위" />
+      <img src="./img/rock.png" alt="바위" />
+      <img src="./img/paper.png" alt="보" />
+    </div>
+    <script>
+      //컴퓨터가 선텍할 수 있는 옵션
+      const options = ['가위', '바위', '보'];
+
+      //클릭 이벤트를 가위, 바위, 보 이미지를 감싼 전체에 설정
+      const $gameArea = document.querySelector('.wrap');
+      $gameArea.addEventListener('click', function (e) {
+        console.log(e);
+
+        //이미지가 아닌 빈 공간을 클릭했을 때 그냥 종료
+        if (e.target.tagName !== 'IMG') return; //tagName로 html의 태그명을 가져올때는 태그명을 무조건 대문자로 입력해줘야 한다.
+
+        const userChoice = e.target.alt; //이벤트를 객체로 쉽게 접근하는 법 .alt
+
+        //함수의 실행(호출)
+        playGame(userChoice);
+      });
+
+      // 게임을 함수로 정의(선언)
+      function playGame(userChoice) {
+        //배열의 인덱스를 랜덤하게 생성
+        //const comChoice = Math.floor(Math.random() * 3); //0~2까지 랜덤하게 나옴. 소수점은 버림
+        //console.log(options[comChoice]);
+        const comChoice = options[Math.floor(Math.random() * 3)];
+
+        //사용자의 선택을 받아서 콘솔에 찍자
+        console.log('사용자 : ' + userChoice, '컴퓨터 : ' + comChoice);
+
+        // 경우의 수를 비교 : 비길경우, 이길경우, 질경우
+        if (userChoice === comChoice) {
+          console.log('비겼다.');
+        } else if (
+          (userChoice === '가위' && comChoice === '보') ||
+          (userChoice === '바위' && comChoice === '가위') ||
+          (userChoice === '보' && comChoice === '바위')
+        ) {
+          console.log('이겼다');
+        } else {
+          console.log('졌다');
+        }
+      }
+    </script>
+  </body>
+</html>

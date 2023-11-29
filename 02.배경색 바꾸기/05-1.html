@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>배경색 바꾸기 : 헥스코드를 랜덤하게 조합</title>
+    <style>
+      body {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      h1 {
+        color: #555;
+      }
+
+      .wrap {
+        width: 40%;
+        padding: 3vw;
+        border: 5px solid #777;
+        border-radius: 20px;
+        background: #fff;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <h1>#ffffff</h1>
+      <button class="btnChange">배경색 바꾸기</button>
+    </div>
+    <script>
+      //대상을 변수로 저장
+      const $body = document.body;
+      const $colorCode = document.querySelector('.wrap h1');
+      const $btnChange = document.querySelector('.btnChange');
+
+      //랜덤하게 뽑아낼 헥스코드 각각의 값을 배열에 저장
+      const hexDigits = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'A', 'B', 'C', 'D', 'E', 'F'];
+
+      //시작하자마자 랜덤하게 배경 생성(만둘어놓은 함수 호출)
+      changeBg();
+
+      //3초에 한 번씩 배경 색 바꾸기
+      //타이머 함수
+      //1. setTimeout(동작, 시간-한 번만 동작)
+      //2. setInterval(동작, 시간-반복 동작)
+      setInterval(changeBg, 1000 * 3);
+
+      //btnChange버튼을 클릭하면
+      $btnChange.addEventListener('click', changeBg);
+
+      //동작을 함수로 정의
+      function changeBg() {
+        let hexColor = '#';
+
+        //hexDigits배열에서 랜덤하게 숫자를 6번 뽑아낸다.
+        //뽑아내는 동작이 6번 반복된다.
+        for (let i = 1; i <= 6; i++) {
+          //랜덤한 수를 생성하자, 15까지만(배열 길이-16으로 설정하고 내림해주기(15.999에서 15로))
+          let randomIdx = Math.floor(Math.random() * hexDigits.length);
+          hexColor += hexDigits[randomIdx];
+          console.log(hexColor);
+
+          //배경색으로 적용
+          $body.style.backgroundColor = hexColor;
+
+          //innerHTML속성 : 선택한 요소의 하위 요소를 가져온다.*(지우기)
+          //textContent 속성 : 선택한 요소의 텍스트를 가져온다.
+          // console.log(document.querySelector('.wrap').innerHTML);
+          // console.log(document.querySelector('.wrap').textContent);
+
+          //h1에 텍스트를 변경---> 예: <h1>#f123e2</h1>
+          $colorCode.textContent = hexColor;
+        }
+      }
+    </script>
+  </body>
+</html>
